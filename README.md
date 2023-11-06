@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Snack-ade
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Donating with a delicious twist,
+Buy or Sell your favorite Homemade goods to help those who are in need.
+
 
 ## Available Scripts
 
