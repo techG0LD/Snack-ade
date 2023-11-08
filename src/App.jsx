@@ -1,13 +1,21 @@
 
 import './App.css';
-import {BrowserRouter as Router,Link,Route,Routes} from 'react-router-dom'
+import {BrowserRouter as Router,Route,Routes} from 'react-router-dom'
 import Catalog from './components/Catalog';
+import Navigation from './components/Header';
+import Home from './components/Home';
+import Error404 from './components/Error404';
+import AboutUs from './components/AboutUs';
+import Footer from './components/Footer';
+import CurrentUserProvider from './contexts/CurrentUser'
 
 function App() {
   return (
     <div className="App">
+      <CurrentUserProvider>
       <Router>
-        <header>
+        <Navigation/>
+        {/* <header>
           <ul>
             <li>
               <Link to='/'>Home</Link>
@@ -19,14 +27,18 @@ function App() {
               <Link to='/about'>About Us</Link>
             </li>
           </ul>
-        </header>
+        </header> */}
         <main>
           <Routes>
-            <Route path='/' />
-            <Route path = '/catalog' element={<Catalog />}/>
+            <Route exact path='/' element={<Home/>}></Route>  
+            <Route exact path = '/catalog' element={<Catalog />}/>
+            <Route exact path='/about' element={<AboutUs />}></Route>
+            <Route path= '/:anything' element={<Error404/>} />
           </Routes>
         </main>
+        <Footer/>
       </Router>
+      </CurrentUserProvider>
     </div>
   );
 }
