@@ -53,6 +53,11 @@ function Navigation() {
                         About
                     </Link>
                 </li>
+                <li>
+                    <Link to="/addSnack" >
+                        Add Snack
+                    </Link>
+                </li>
                 {loginActions}
             </ul>
         </nav>

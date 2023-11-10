@@ -4,6 +4,10 @@ nav h1 {
     top: 1px;
 } 
 
+.addbutton{
+    margin: 10px;
+}
+
 nav {
     background-color: #bfb5a1;
     

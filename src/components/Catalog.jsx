@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-
+import { Link } from 'react-router-dom'
 
 export default function Catalog() {
     const [snacks,setSnacks] = useState([])
@@ -20,11 +20,15 @@ export default function Catalog() {
             <ul>
                 {snacks.map((snack,index) => (
                     <li key={index} style = {{padding: '30px'}}>
+                        {/* <Link to={`/snacks/${snack.snack_id}`}> */}
+                        <Link to={`/snacks/${snack.name}`}>
                         <div>{snack.name}</div>
                         <div>{snack.vendor}</div>
                         <img src={snack.img} alt='Picture of snack'/>
                         <div>{snack.price}</div>
                         <div>{snack.desc}</div>
+                        </Link>
+                        
                     </li>
                 ))}
             </ul>
