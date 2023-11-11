@@ -7,12 +7,16 @@ const defCurrentUser = require('./middleware/defCurrentUser')
 const { Sequelize } = require('sequelize');
 const path = require('path');
 const cors = require('cors');
+const methodOverride = require('method-override')
+
 
 //Configuration / MiddleWare
 app.use(express.static('public'))
 app.use(cors());
 app.use(bodyParser.json())
+app.use(methodOverride('_method'))
 // app.use(express.json());
+// app.use(express.static(path.join(__dirname,'../build')))
 app.use('/authentication',require('./controllers/auth'))
 app.use(express.urlencoded({extended: true}));
 app.use(defCurrentUser)

@@ -15,29 +15,25 @@ function AddSnack() {
                         <Form.Label>Name:</Form.Label>
                         <input className='form-control' placeholder="Snack Name" id='name' name='name' required/>
                         <Form.Label>Vendor:</Form.Label>
-                        <input className="form-control" id="vendor" name="vendor" />
+                        <input className="form-control" id="vendor" name="vendor" required />
                         <Form.Label>Price:</Form.Label>
-                        <input className="form-control" id="price" name="price" />
+                        <input className="form-control" id="price" name="price" type= 'number' required />
                         <Form.Label>Image URL:</Form.Label>
-                        <input className="form-control" id="img" name="img" />
+                        <input className="form-control" id="img" name="img" required />
                         <Form.Label>Description:</Form.Label>
-                        <input className="form-control" id="desc" name="desc" />
-                        
+                        <input className="form-control" id="desc" name="desc" required/>
                         
                     </Form.Group>
                 </Row>
                 
-
                 
                 <Button variant="danger"   type="submit" value="submit" >Add Snack </Button>
                         
 
                 <Link to='/'>
-                    <br></br>
-                <Button className='addbutton' variant="danger">
-                    Back to Home
-                </Button>
+                    <Button className='addbutton' variant="danger"> Back to Home </Button>
                 </Link>
+
             </Form>     
         </div>
         )

@@ -43,13 +43,13 @@ export default function Product() {
 
 
 
-            {/* <form method = "POST" action={`https://in-or-out.onrender.com/api/recipes/recipe/${snack.recipe_id}?_method=DELETE`}>
+            <form method = "POST" action={`http://localhost:4005/api/snacks/${snack.name}?_method=DELETE`}>
                 <Button type="submit" className="btn btn-danger">Delete</Button>
-            </form> */}
+            </form>
 
-            {/* <div>
-                <Link to={`Update/${snack.recipe_id}`}><Button variant='danger'>Update snack</Button></Link>
-            </div> */}
+            <div>
+                <Link to={`update`}><Button variant='danger'>Update snack</Button></Link>
+            </div>
             {/* <form method="POST" action={`/places/${data.id}?_method=PUT`}></form> */}
 
         </div>

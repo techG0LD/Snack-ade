@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import CurrentUserProvider from './contexts/CurrentUser'
 import Product from './components/Pages/Product';
 import AddSnack from './components/Pages/AddSnack';
+import UpdateSnack from './components/Pages/Update';
 
 function App() {
   return (
@@ -35,10 +36,13 @@ function App() {
             <Route exact path='/' element={<Home/>}></Route>  
             <Route exact path = '/catalog' element={<Catalog />}/>
             <Route exact path='/about' element={<AboutUs />}></Route>
-            <Route path= '/:anything' element={<Error404/>} />
-            <Route path= '/:anything/:anysnack' element={<Error404/>} />
+            
             <Route exact path='/snacks/:name' element={<Product />}></Route>
             <Route exact path='/addSnack' element={<AddSnack />}></Route>
+            <Route exact path='/snacks/:name/update' element={<UpdateSnack />}></Route>
+            {/* reads Routes top to bottom */}
+            <Route path= '/:anything' element={<Error404/>} /> 
+            <Route path= '/snacks/:anysnack' element={<Error404/>} />
           </Routes>
         </main>
         <Footer/>
