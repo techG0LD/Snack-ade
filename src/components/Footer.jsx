@@ -1,12 +1,45 @@
 import React from 'react'
 
-const Footer = () => {
+import { useState, useEffect, useContext  } from 'react'
+
+
+import { Link  } from 'react-router-dom';
+
+function Footer() {
+
+   
+    
+    
+
     return (
-        <footer>
-            Contact us
-        </footer>
-      
+        <>
+        
+        <nav>
+       
+            <ul>
+                <li style={{ float: 'none' }}>
+                    <Link to=""  >
+                        Home
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/contact"  >
+                        Contact Us
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/about" >
+                        About
+                    </Link>
+                </li>
+                
+                
+            </ul>
+        </nav>
+       </>
     )
 }
 
-export default Footer
+export default Footer;
+
+

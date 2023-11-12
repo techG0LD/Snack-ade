@@ -35,7 +35,26 @@ function Navigation() {
 
     let addSnackButton = null
     if(currentUser?.role === 'seller' || currentUser?.role === 'admin'){
-        addPlaceButton
+        addSnackButton= (
+            <li>
+                <Link to="/addSnack" >
+                    Add Snack
+                </Link>
+            </li>
+            
+        )
+    }
+
+    let addAccountButton = null
+    if(currentUser?.role === 'seller' || currentUser?.role === 'admin'  || currentUser?.role === 'buyer' ){
+        addAccountButton= (
+            <li>
+                <Link to="/profile" >
+                    Account
+                </Link>
+            </li>
+            
+        )
     }
 
     return (
@@ -59,11 +78,9 @@ function Navigation() {
                         About
                     </Link>
                 </li>
-                <li>
-                    <Link to="/addSnack" >
-                        Add Snack
-                    </Link>
-                </li>
+                
+                {addSnackButton}
+                {addAccountButton}
                 {loginActions}
             </ul>
         </nav>

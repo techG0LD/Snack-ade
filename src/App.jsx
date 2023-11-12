@@ -13,6 +13,8 @@ import AddSnack from './components/Pages/AddSnack';
 import UpdateSnack from './components/Pages/Update';
 import LoginForm from './components/Pages/Login';
 import SignUpForm from './components/Pages/SignUp';
+import Profile from './components/Pages/Profile';
+import UpdateProfile from './components/Pages/UpdateProfile';
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
           <Routes>
             <Route exact path='/' element={<Home/>}></Route>  
             <Route exact path = '/catalog' element={<Catalog />}/>
+            <Route exact path = '/profile' element={<Profile />}/>
+            <Route exact path='/profile/update' element={<UpdateProfile />}></Route>
             <Route exact path='/about' element={<AboutUs />}></Route>
             <Route exact path='/addSnack' element={<AddSnack />}></Route>
             <Route exact path='/login' element={<LoginForm />}></Route>
