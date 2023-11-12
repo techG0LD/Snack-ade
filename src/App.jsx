@@ -11,6 +11,8 @@ import CurrentUserProvider from './contexts/CurrentUser'
 import Product from './components/Pages/Product';
 import AddSnack from './components/Pages/AddSnack';
 import UpdateSnack from './components/Pages/Update';
+import LoginForm from './components/Pages/Login';
+import SignUpForm from './components/Pages/SignUp';
 
 function App() {
   return (
@@ -36,9 +38,10 @@ function App() {
             <Route exact path='/' element={<Home/>}></Route>  
             <Route exact path = '/catalog' element={<Catalog />}/>
             <Route exact path='/about' element={<AboutUs />}></Route>
-            
-            <Route exact path='/snacks/:name' element={<Product />}></Route>
             <Route exact path='/addSnack' element={<AddSnack />}></Route>
+            <Route exact path='/login' element={<LoginForm />}></Route>
+            <Route exact path='/sign-up' element={<SignUpForm />}></Route>
+            <Route exact path='/snacks/:name' element={<Product />}></Route>
             <Route exact path='/snacks/:name/update' element={<UpdateSnack />}></Route>
             {/* reads Routes top to bottom */}
             <Route path= '/:anything' element={<Error404/>} /> 

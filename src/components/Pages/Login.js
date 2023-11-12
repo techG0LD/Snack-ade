@@ -1,42 +1,43 @@
 import { useContext, useState } from "react"
-import { useHistory } from "react-router"
-import { CurrentUser } from "../contexts/CurrentUser"
+import {useNavigate} from "react-router-dom"
+import { CurrentUser } from "../../contexts/CurrentUser"
 
 function LoginForm() {
 
-    // const history = useHistory()
+    const navigate = useNavigate();
 
-    // const { setCurrentUser } = useContext(CurrentUser)
+    const { setCurrentUser } = useContext(CurrentUser)
 
     const [credentials, setCredentials] = useState({
         email: '',
         password: ''
     })
 
-    // const [errorMessage, setErrorMessage] = useState(null)
+    //  const [errorMessage, setErrorMessage] = useState(null)
 
-    // async function handleSubmit(e) {
-    //     e.preventDefault()
-    //     const response = await fetch(`http://localhost:5000/authentication`,{
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(credentials)
-    //     })
+    async function handleSubmit(e) {
+        e.preventDefault()
+        const response = await fetch(`http://localhost:4005/api/authen/`,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(credentials)
+        })
         
-    //     const data = await response.json()
-    //     // console.log(data)
+        const data = await response.json()
+        // console.log(data)
 
-    //     if(response.status === 200){
-    //         setCurrentUser(data.user)
-    //         localStorage.setItem('token',data.token)
-    //         // console.log(data.token)
-    //         history.push(`/`)
-    //     } else {
-    //         setErrorMessage(data.message)
-    //     }
-    // }
+        if(response.status === 200){
+            setCurrentUser(data.user)
+            localStorage.setItem('token',data.token)
+            // console.log(data.token)
+            navigate(-1)
+            // history.push(`/`)
+        } else {
+            // setErrorMessage(data.message)
+        }
+    }
 
     return (
         <main>
@@ -50,6 +51,7 @@ function LoginForm() {
                 : null
             } */}
             <form onSubmit={handleSubmit}>
+            
                 <div className="row">
                     <div className="col-sm-6 form-group">
                         <label htmlFor="email">Email</label>

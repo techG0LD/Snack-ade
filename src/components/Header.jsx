@@ -32,6 +32,12 @@ function Navigation() {
         )
     }
 
+
+    let addSnackButton = null
+    if(currentUser?.role === 'seller' || currentUser?.role === 'admin'){
+        addPlaceButton
+    }
+
     return (
         <>
         
