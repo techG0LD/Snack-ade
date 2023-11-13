@@ -18,7 +18,7 @@ app.use(bodyParser.json())
 app.use(methodOverride('_method'))
 // app.use(express.json());
 // app.use(express.static(path.join(__dirname,'../build')))
-app.use('/api/authen',require('./controllers/auth'))
+
 app.use(defCurrentUser)
 
 //Controllers
@@ -28,7 +28,7 @@ app.use('/api/Snacks', snacksController)
 const usersController = require('./controllers/users_controller');
 app.use('/api/users', usersController)
 
-
+app.use('/api/authen',require('./controllers/auth'))
 
 //Listen
 app.listen( 4005 || process.env.PORT, () => {

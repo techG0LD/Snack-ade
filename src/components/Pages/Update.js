@@ -9,6 +9,7 @@ import {useState,useEffect} from 'react'
 function UpdateSnack() {
     const [snack, setSnack] = useState([''])
     const params = useParams();
+    console.log((JSON.stringify(params)))
 
     useEffect(()=> {
         const fetchData = async () => {

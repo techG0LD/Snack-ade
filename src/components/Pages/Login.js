@@ -13,7 +13,7 @@ function LoginForm() {
         password: ''
     })
 
-    //  const [errorMessage, setErrorMessage] = useState(null)
+     const [errorMessage, setErrorMessage] = useState(null)
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -35,21 +35,21 @@ function LoginForm() {
             navigate(-1)
             // history.push(`/`)
         } else {
-            // setErrorMessage(data.message)
+            setErrorMessage(data.message)
         }
     }
 
     return (
         <main>
             <h1>Login</h1>
-            {/* {errorMessage !== null
+            {errorMessage !== null
                 ? (
                     <div className="alert alert-danger" role="alert">
                         {errorMessage}
                     </div>
                 )
                 : null
-            } */}
+            }
             <form onSubmit={handleSubmit}>
             
                 <div className="row">

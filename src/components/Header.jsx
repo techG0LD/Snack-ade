@@ -49,7 +49,7 @@ function Navigation() {
     if(currentUser?.role === 'seller' || currentUser?.role === 'admin'  || currentUser?.role === 'buyer' ){
         addAccountButton= (
             <li>
-                <Link to="/profile" >
+                <Link to={`/profile/${currentUser.user_id}`}>
                     Account
                 </Link>
             </li>

@@ -4,39 +4,59 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { Link, useParams} from 'react-router-dom'
 import {useState,useEffect,useContext} from 'react'
-import {CurrentUser} from '../../contexts/CurrentUser'
+// import { CurrentUser } from '../../contexts/CurrentUser';
+//  import CurrentUserProvider, {CurrentUser} from '../../contexts/CurrentUser'
+
 
 
 function UpdateProfile() {
 
-    const { currentUser } = useContext(CurrentUser)
+    //  const { currentUser } = useContext(CurrentUser)
+  
+    const [user, setUser] = useState([''])
+      const params = useParams();
+     
+       
+     
+    useEffect(()=> {
+        const fetchData = async () => {
+            const response = await fetch(`http://localhost:4005/api/users/${JSON.stringify(params)}`)
+            const json = await response.json()
+            setUser(json)
+        }
+        fetchData()
+    }, [] )
+
+
+
+
 
 
   return (
     <div> 
-        <Form className="form" method="POST" action={`http://localhost:4005/api/users?_method=PUT`}>
+        <Form className="form" method="POST" action={`http://localhost:4005/api/users/${user.user_id}?_method=PUT`}>
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridCity">
                     <Form.Label>First Name:</Form.Label>
-                    <input className='form-control' id='firstName' name='firstName'   defaultValue={currentUser.firstName} required/>
+                    <input className='form-control' id='firstName' name='firstName'   defaultValue={user.firstName} required/>
                     <Form.Label>Last Name:</Form.Label>
-                    <input className='form-control' id='lastName' name='lastName'   defaultValue={currentUser.lastName} required/>
+                    <input className='form-control' id='lastName' name='lastName'   defaultValue={user.lastName} required/>
                     <Form.Label>Email:</Form.Label>
-                    <input className="form-control" id="email" name="email"  defaultValue={currentUser.email} />
-                    <Form.Label>Account Type :</Form.Label>
+                    <input className="form-control" id="email" name="email"  defaultValue={user.email} />
+                    <Form.Label>Account Type:</Form.Label>
                      <select
                         id="role"
+                        name="role"
                         required
                         value={user.role} // set the value of the select to user.role
-                        onChange={(e) => setUser({ ...user, role: e.target.value })} // update the user.role state when the select changes
+                        onChange={(e) => setUser({ ...user, role: e.target.value })} //update the user.role state when the select changes
                         className="form-control"
                     >
-                        <option selected="selected" value='buyer'>Buyer</option>
+                        <option value='buyer'>Buyer</option>
                         <option value='seller'>Seller</option>
-                        </select>
-                    <input className="form-control" id="role" name="role"  defaultValue={currentUser.role}/>
+                    </select>
                     <Form.Label>Password:</Form.Label>
-                    <input className="form-control" id="password" name="password"  defaultValue={currentUser.pass} />
+                    <input className="form-control" id="pass" name="pass"  defaultValue={user.pass} />
                 </Form.Group>
             </Row>
             

@@ -5,7 +5,7 @@ const { User } = db;
 
 async function defineCurrentUser(req, res, next){
 
-    
+
     try {
         const [ method, token ] = req.headers.authorization.split(' ')
         if(method == 'Bearer'){
@@ -13,7 +13,7 @@ async function defineCurrentUser(req, res, next){
             const { id } = result.value
             let user = await User.findOne({ 
                 where: {
-                    userId: id
+                    user_id: id
                 }
             })
             req.currentUser = user

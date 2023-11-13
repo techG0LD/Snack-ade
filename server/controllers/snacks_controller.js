@@ -58,6 +58,7 @@ snacks.post('/', async(req,res) => {
 //UPDATE A Sncak
 snacks.put('/:name', async(req,res) => {
     const {name} = req.params
+    console.log(req.body)
     try{
         const updatedSnack= await Snack.update(req.body, {
             where: {
