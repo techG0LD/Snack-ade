@@ -29,7 +29,13 @@ function UpdateProfile() {
 
 
 
-
+    // define the handlePassChange function
+    function handlePassChange(e) {
+    // get the new value from the event target
+    const newValue = e.target.value;
+    // update the localStorage value with the new value
+    localStorage.setItem('password', newValue);
+  }
 
 
   return (
@@ -56,7 +62,7 @@ function UpdateProfile() {
                         <option value='seller'>Seller</option>
                     </select>
                     <Form.Label>Password:</Form.Label>
-                    <input className="form-control" id="pass" name="pass"  defaultValue={user.pass} />
+                    <input className="form-control" id="pass" name="pass"  defaultValue={localStorage.getItem('password')} onChange={handlePassChange}/>
                 </Form.Group>
             </Row>
             

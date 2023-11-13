@@ -86,60 +86,6 @@ users.put('/:user_id', async(req,res) => {
         res.status(500).json(error)
     }
 })
-// users.put('/:user_id', async(req,res) => {
-//     const {user_id} = req.params
-//     let {pass} = req.body
-//     console.log(pass)
-//      // get the current password hash from the database
-//     const currentHash = await User.findOne({
-//         where: {
-//             user_id: user_id
-//         },
-//         attributes: ['pass']
-//     });
-
-//     console.log(currentHash.pass)
-
-
-//     // compare the hashes using bcrypt
-//     const isMatch = await bcrypt.compare(pass, currentHash.pass);
-//     console.log(isMatch)
-//     // const newP =  
-//     // if the hashes do not match, update the password
-//     if(!isMatch){
-        
-//         try{
-//             console.log('first coice')
-//             const updatedUser = await User.update(req.body, {
-//                 where: {
-//                     user_id: user_id
-//                 },
-//                 // hash the new password using bcrypt
-//                 pass: await bcrypt.hash(pass,10)
-//             });
-//              res.redirect(`http://localhost:3000/profile/${user_id}`)
-//         } catch(error) {
-//             res.status(500).json(error)
-//         }
-//     }
-//     else {
-//          try{
-//             console.log("second choice")
-//         const updatedUser = await User.update(req.body, {
-//             where: {
-//                 user_id: user_id
-//             },
-//         }
-        
-//         );
-        
-//         res.redirect(`http://localhost:3000/profile/${user_id}`)
-//     } catch(error) {
-//         res.status(500).json(error)
-//     }
-//     }
-
-// })
 
    
 

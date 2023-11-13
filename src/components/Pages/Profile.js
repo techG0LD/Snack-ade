@@ -33,7 +33,7 @@ function Profile() {
                     <div><h3>Last Name: {user.lastName}</h3></div>
                     <div><h3>Account type: {user.role}</h3></div>
                     <div><h3>Email: {user.email}</h3></div>
-                    <div><h3>Encryptyed Password: {user.pass}</h3></div>
+                    <div><h3>Password: {localStorage.getItem('password')}</h3></div>
                 </li>
             </ul>
         

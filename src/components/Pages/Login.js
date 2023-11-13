@@ -31,6 +31,7 @@ function LoginForm() {
         if(response.status === 200){
             setCurrentUser(data.user)
             localStorage.setItem('token',data.token)
+            localStorage.setItem('password',credentials.password)
             // console.log(data.token)
             navigate(-1)
             // history.push(`/`)
