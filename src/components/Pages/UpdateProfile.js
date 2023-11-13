@@ -48,7 +48,7 @@ function UpdateProfile() {
                     <Form.Label>Last Name:</Form.Label>
                     <input className='form-control' id='lastName' name='lastName'   defaultValue={user.lastName} required/>
                     <Form.Label>Email:</Form.Label>
-                    <input className="form-control" id="email" name="email"  defaultValue={user.email} />
+                    <input className="form-control" id="email" name="email"  defaultValue={user.email} required/>
                     <Form.Label>Account Type:</Form.Label>
                      <select
                         id="role"
@@ -62,7 +62,7 @@ function UpdateProfile() {
                         <option value='seller'>Seller</option>
                     </select>
                     <Form.Label>Password:</Form.Label>
-                    <input className="form-control" id="pass" name="pass"  defaultValue={localStorage.getItem('password')} onChange={handlePassChange}/>
+                    <input className="form-control" id="pass" name="pass" required defaultValue={localStorage.getItem('password')} onChange={handlePassChange}/>
                 </Form.Group>
             </Row>
             

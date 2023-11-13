@@ -2,17 +2,27 @@ import { useState, useEffect, useContext  } from 'react'
 
  import { CurrentUser } from '../contexts/CurrentUser';
 import { Link  } from 'react-router-dom';
+import Button  from 'react-bootstrap/Button';
+// import { LogoutButton } from './LogoutButton';
 
 function Navigation() {
 
-    // const history = useHistory()
+    let { currentUser,setCurrentUser } = useContext(CurrentUser)
 
-    const { currentUser } = useContext(CurrentUser)
+    //define a handleClick function 
+    function handleClick(e) {
+    // Remove all items from localStorage
+    localStorage.clear();
+    //resets the currentUser to null,thus giving you the nav bar only the options to login/sign up
+    setCurrentUser(null)
+    
+  }
 
     let loginActions = (
         <>
+            
             <li style={{ display:'inline-block' ,float: 'right' }}>
-                <Link to="/sign-up" >
+                <Link  to="/sign-up" >
                     Sign Up
                 </Link>
             </li>
@@ -26,9 +36,18 @@ function Navigation() {
 
     if (currentUser) {
         loginActions = (
+            <>
+
+            {/* <LogoutButton/> */}
+            <li  style={{ float: 'right' }}>
+                <Link onClick={handleClick} to="/" >
+                    <Button >Sign Out</Button>
+                </Link>
+            </li>
             <li style={{ float: 'right' }}>
                 Logged in as {currentUser.firstName} {currentUser.lastName}
             </li>
+            </>
         )
     }
 
@@ -56,6 +75,8 @@ function Navigation() {
             
         )
     }
+
+   
 
     return (
         <>
@@ -90,34 +111,3 @@ function Navigation() {
 
 export default Navigation;
 
-
-
-
-
-
-// import React from 'react'
-// import {Link} from 'react-router-dom';
-
-// const Header = () => {
-//     return (
-//         <header>
-//             <h1>Snack-ade</h1>
-//             {/* <SearchBar></SearchBar> */}
-//             <ul>
-//             <li>
-//               <Link to='/'>Home</Link>
-//             </li>
-//             <li>
-//               <Link to='/catalog'>Catalog</Link>
-//             </li>
-//             <li>
-//               <Link to='/about'>About Us</Link>
-//             </li>
-//             <li></li>
-//             </ul>
-//         </header>
-      
-//     )
-// }
-
-// export default Header
