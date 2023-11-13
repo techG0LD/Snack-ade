@@ -85,10 +85,7 @@ snacks.delete('/:name', async(req,res) => {
             }
         });
         res.redirect('http://localhost:3000/')
-        //  res.redirect('http://localhost:4005/recipes')   for testing on device (not deployed)
-        
-        // res.status(200).json({
-        //     message: Successfully deleted restaurant id ${id},})
+       
     } catch(error) {
         res.status(500).json(error)
     }

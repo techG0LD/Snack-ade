@@ -72,7 +72,10 @@ function UpdateProfile() {
 
             
             <Button variant="danger"   type="submit" value="submit" >Update Profile </Button>
-                    
+
+             <form method = "POST" action={`http://localhost:4005/api/users/${user.user_id}?_method=DELETE`}>
+                <Button type="submit" className="btn btn-danger">Delete User</Button>
+            </form>       
 
             <Link to='/'>
             <Button variant="danger">

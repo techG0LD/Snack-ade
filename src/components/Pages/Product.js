@@ -43,10 +43,7 @@ export default function Product() {
 
 
 
-            <form method = "POST" action={`http://localhost:4005/api/snacks/${snack.name}?_method=DELETE`}>
-                <Button type="submit" className="btn btn-danger">Delete</Button>
-            </form>
-
+           
             <div>
                 <Link to={`update`}><Button variant='danger'>Update snack</Button></Link>
             </div>

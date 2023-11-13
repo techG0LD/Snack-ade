@@ -43,6 +43,9 @@ users.get('/:user_id', async (req,res) => {
     }
 })
 
+
+
+
 //UPDATE A User
 users.put('/:user_id', async(req,res) => {
     const {user_id} = req.params
@@ -89,7 +92,7 @@ users.put('/:user_id', async(req,res) => {
 
    
 
-
+//Add new user
 users.post('/', async (req, res) => {
     let {password,role, ...rest} = req.body;
     if(role == "") {
@@ -104,7 +107,24 @@ users.post('/', async (req, res) => {
 })
 
 
+//Delete User
+users.delete('/:user_id', async(req,res) => {
+    const {user_id} = req.params
+    console.log(user_id)
+
+    try{
+        const deleteUser= await User.destroy({
+            where: {
+                user_id: user_id
+            }
+        });
+        res.redirect('http://localhost:3000/')
+       
+    } catch(error) {
+        res.status(500).json(error)
+    }
 
 
+})
 
 module.exports = users

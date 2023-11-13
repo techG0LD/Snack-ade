@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
 
     // console.log('IN HERE')
     let user = await User.findOne({
-        where: {email: req.body.email}
+        where: {email: req.body.email},
     })
 
     if(!user || !await bcrypt.compare(req.body.password, user.pass)) {
