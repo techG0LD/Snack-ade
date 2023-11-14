@@ -21,7 +21,7 @@ function Profile() {
 
 
 
-    // const { currentUser } = useContext(CurrentUser)
+    
 
     
     return (

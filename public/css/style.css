@@ -8,23 +8,43 @@ nav h1 {
     margin: 10px;
 }
 
-nav {
-    background-color: #bfb5a1;
-    
+.navbar-custom {
+    background-color: #606C38;
+    color:#f0aa6d;
     padding: 10px;
 }
 
+.nav-link-custom:hover {
+    border: 2px solid #f0aa6d;
+    border-radius: 10px;
+  }
+  
 nav ul {
     list-style-type: none;
     
     margin: 0;
 }
 
+.nav-toggle-custom{
+    color:#f0aa6d;
+    background-color: #f0aa6d;
+}
 
 nav a {
     color: white;
     font-size: 1.5em;
 }
+
+.navbar-brand-custom{
+    color:#f0aa6d;
+}
+
+.nav-link-custom {
+    color:#f0aa6d;
+
+}
+
+
 
 nav li {
     display: inline;
@@ -42,9 +62,9 @@ main {
     margin-right: 20px;
     margin-left: 20px;
     padding: 20px;
-    background-color: #fffdd0;
+    background-color: #D0E3CC;
 }
 
 .App{
-    background-color: #fffdd0;
+    background-color: #D0E3CC;
 }

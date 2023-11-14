@@ -82,6 +82,8 @@ users.put('/:user_id', async(req,res) => {
     if(!isMatch){
         // hash the new password using bcrypt
         req.body.pass = await bcrypt.hash(req.body.pass,10);
+    } else {
+        req.body.pass = currentHash.pass
     }
 
     // update the user with the specified properties

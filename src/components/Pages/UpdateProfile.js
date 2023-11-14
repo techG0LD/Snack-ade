@@ -4,14 +4,10 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { Link, useParams} from 'react-router-dom'
 import {useState,useEffect,useContext} from 'react'
-// import { CurrentUser } from '../../contexts/CurrentUser';
-//  import CurrentUserProvider, {CurrentUser} from '../../contexts/CurrentUser'
 
 
 
 function UpdateProfile() {
-
-    //  const { currentUser } = useContext(CurrentUser)
   
     const [user, setUser] = useState([''])
       const params = useParams();
@@ -35,6 +31,10 @@ function UpdateProfile() {
     const newValue = e.target.value;
     // update the localStorage value with the new value
     localStorage.setItem('password', newValue);
+  }
+
+  function deleteStorage(e) {
+    localStorage.clear();
   }
 
 
@@ -74,7 +74,7 @@ function UpdateProfile() {
             <Button variant="danger"   type="submit" value="submit" >Update Profile </Button>
 
              <form method = "POST" action={`http://localhost:4005/api/users/${user.user_id}?_method=DELETE`}>
-                <Button type="submit" className="btn btn-danger">Delete User</Button>
+                <Button type="submit" className="btn btn-danger" onClick={deleteStorage}>Delete User</Button>
             </form>       
 
             <Link to='/'>

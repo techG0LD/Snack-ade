@@ -1,113 +1,83 @@
-import { useState, useEffect, useContext  } from 'react'
 
- import { CurrentUser } from '../contexts/CurrentUser';
-import { Link  } from 'react-router-dom';
-import Button  from 'react-bootstrap/Button';
-// import { LogoutButton } from './LogoutButton';
+
+import { useState, useEffect, useContext } from "react";
+import { CurrentUser } from "../contexts/CurrentUser";
+import { Link } from "react-router-dom";
+// Import React Bootstrap components
+import { Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
 
 function Navigation() {
+  let { currentUser, setCurrentUser } = useContext(CurrentUser);
 
-    let { currentUser,setCurrentUser } = useContext(CurrentUser)
-
-    //define a handleClick function 
-    function handleClick(e) {
+  //define a handleClick function
+  function handleClick(e) {
     // Remove all items from localStorage
     localStorage.clear();
     //resets the currentUser to null,thus giving you the nav bar only the options to login/sign up
-    setCurrentUser(null)
-    
+    setCurrentUser(null);
   }
 
-    let loginActions = (
-        <>
-            
-            <li style={{ display:'inline-block' ,float: 'right' }}>
-                <Link  to="/sign-up" >
-                    Sign Up
-                </Link>
-            </li>
-            <li style={{display:'inline', float: 'right' }}>
-                <Link to="/login">
-                    Login
-                </Link>
-            </li>
-        </>
-    )
+  let loginActions = (
+    <>
+      <Nav.Link className="nav-link-custom" as={Link} to="/sign-up">
+        Sign Up
+      </Nav.Link>
+      <Nav.Link className="nav-link-custom" as={Link} to="/login">
+        Login
+      </Nav.Link>
+    </>
+  );
 
-    if (currentUser) {
-        loginActions = (
-            <>
+  if (currentUser) {
+    loginActions = (
+      <>
+        <Nav.Link className="nav-link-custom" as={Link} onClick={handleClick} to="/">
+          <Button variant="outline-light">Sign Out</Button>
+        </Nav.Link>
+        <NavDropdown
+          title={`Logged in as ${currentUser.firstName} ${currentUser.lastName}`}
+          id="user-dropdown"
+        >
+          <NavDropdown.Item className="nav-link-custom" as={Link} to={`/profile/${currentUser.user_id}`}>
+            Account
+          </NavDropdown.Item>
+          {currentUser.role === "seller" || currentUser.role === "admin" ? (
+            <NavDropdown.Item className="nav-link-custom" as={Link} to="/addSnack">
+              Add Snack
+            </NavDropdown.Item>
+          ) : null}
+        </NavDropdown>
+      </>
+    );
+  }
 
-            {/* <LogoutButton/> */}
-            <li  style={{ float: 'right' }}>
-                <Link onClick={handleClick} to="/" >
-                    <Button >Sign Out</Button>
-                </Link>
-            </li>
-            <li style={{ float: 'right' }}>
-                Logged in as {currentUser.firstName} {currentUser.lastName}
-            </li>
-            </>
-        )
-    }
-
-
-    let addSnackButton = null
-    if(currentUser?.role === 'seller' || currentUser?.role === 'admin'){
-        addSnackButton= (
-            <li>
-                <Link to="/addSnack" >
-                    Add Snack
-                </Link>
-            </li>
-            
-        )
-    }
-
-    let addAccountButton = null
-    if(currentUser?.role === 'seller' || currentUser?.role === 'admin'  || currentUser?.role === 'buyer' ){
-        addAccountButton= (
-            <li>
-                <Link to={`/profile/${currentUser.user_id}`}>
-                    Account
-                </Link>
-            </li>
-            
-        )
-    }
-
-   
-
-    return (
-        <>
-        
-        <nav>
-            <h1>Snack-ade.com</h1>
-            <ul>
-                <li style={{ float: 'none' }}>
-                    <Link to=""  >
-                        Home
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/catalog"  >
-                        Catalog
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/about" >
-                        About
-                    </Link>
-                </li>
-                
-                {addSnackButton}
-                {addAccountButton}
-                {loginActions}
-            </ul>
-        </nav>
-       </>
-    )
+  return (
+    <>
+      <Navbar className="navbar-custom" variant="" expand="lg">
+        <Navbar.Brand as={Link} to="/">
+          Snack-ade.com
+        </Navbar.Brand>
+        <Navbar.Toggle className="nav-link-custom" aria-controls="basic-navbar-nav">
+        {/* Replace your icon here */}
+        <i class="fa fa-bars" aria-hidden="true"></i>
+        </Navbar.Toggle>
+        <Navbar.Collapse  id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link className="nav-link-custom" as={Link} to="/">
+              Home
+            </Nav.Link>
+            <Nav.Link className="nav-link-custom" as={Link} to="/catalog">
+              Catalog
+            </Nav.Link>
+            <Nav.Link className="nav-link-custom" as={Link} to="/about">
+              About
+            </Nav.Link>
+          </Nav>
+          <Nav>{loginActions}</Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    </>
+  );
 }
 
 export default Navigation;
-
