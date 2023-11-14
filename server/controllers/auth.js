@@ -8,48 +8,60 @@ const { User } = db
 router.post('/', async (req, res) => {
 
 
-    // console.log('IN HERE')
-    let user = await User.findOne({
-        where: {email: req.body.email},
+     // Find all users in the database
+     let users = await User.findAll({
+        where: {email: req.body.email}
     })
 
-    if(!user || !await bcrypt.compare(req.body.password, user.pass)) {
+    // Initialize the result variable
+    let result = null;
+    let correctEmail = null
+
+    // Loop over the users array
+    for (const user of users) {
+        // Check if the user's password matches the request password
+        if (await bcrypt.compare(req.body.password, user.pass)) {
+            // Encode the user's id as a token
+            result = await jwt.encode(process.env.JWT_SECRET, {id: user.user_id})
+            correctEmail = user
+            // Break out of the loop
+            break;
+        }
+    }
+
+    // Check if the result is null or not
+    if (result === null) {
+        // No user matched the password
         res.status(404).json({
             message: `Could not find a user with the provided username and password`})
     }  else {
-        const result = await jwt.encode(process.env.JWT_SECRET, {id: user.user_id})
-        res.json({user: user, token: result.value})
+        // Send the user and the token as a response
+        res.json({user: correctEmail, token: result.value})
     }
 })
+
+
+
+
+
+
+    // console.log('IN HERE')
+//     let user = await User.findOne({
+//         where: {email: req.body.email}
+//     })
+
+//     if(!user || !await bcrypt.compare(req.body.password, user[0].pass)) {
+//         res.status(404).json({
+//             message: `Could not find a user with the provided username and password`})
+//     }  else {
+//         const result = await jwt.encode(process.env.JWT_SECRET, {id: user.user_id})
+//         res.json({user: user, token: result.value})
+//     }
+// })
 
 router.get('/profile', async (req, res) => {
 
          res.json(req.currentUser)
-        // try {
-        //     // Split the authorization header into [ "Bearer", "TOKEN" ]:
-        //     const [authenticationMethod, token] = req.headers.authorization.split(' ')
-    
-        //     // Only handle "Bearer" authorization for now 
-        //     //  (we could add other authorization strategies later):
-        //     if (authenticationMethod == 'Bearer') {
-    
-        //         // Decode the JWT
-        //         const result = await jwt.decode(process.env.JWT_SECRET, token)
-    
-        //         // Get the logged in user's id from the payload
-        //         const { id } = result.value
-    
-        //         // Find the user object using their id:
-        //         let user = await User.findOne({
-        //             where: {
-        //                 user_id: id
-        //             }
-        //         })
-        //         res.json(user)
-        //     }
-        // } catch {
-        //     res.json(null)
-        // }
     })
     
 
