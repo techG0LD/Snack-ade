@@ -15,6 +15,17 @@ snacks.get('/',async (req,res) => {
     }
 })
 
+//All snack names 
+snacks.get('/names', async (req, res) => {
+    const snacks = await Snack.findAll()
+    // Map the users array to an array of emails
+    const names = snacks.map(snack => snack.name)
+    // Send the emails array as a JSON response
+    res.json(names)
+})
+
+
+
 
 //INDIVIDUAL SNACK PAGE 
 snacks.get('/:name', async (req,res) => {
@@ -37,9 +48,13 @@ snacks.get('/:name', async (req,res) => {
         res.status(200).json(foundSnack)
 
     }  catch(e) {
+
         res.status(500).json(e)
     }
 })
+
+
+
 
 
 

@@ -1,12 +1,41 @@
-nav h1 {
-    position:absolute;
-    color:gold;
-    top: 1px;
-} 
+.App { width: 100vw; height: 100vh; display: flex; flex-direction: column; }
+
+main { flex: 1; overflow: auto; }
+
+h1{
+    font-family: 'Roboto Slab', serif;
+    font-size:60px;
+    color:#f0aa6d;
+}
+
+h2{
+    font-family: 'Roboto Slab', serif;
+    font-size:50px;
+    color:#f0aa6d;
+    padding-top: 40px;
+}
+
+.snack-title{
+    background-color: #606C38;
+    color:white;
+    width: 30%;
+    text-align: center;
+}
 
 .addbutton{
     margin: 10px;
 }
+
+.card {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-img-top {
+    height: 200px;
+    width: auto;
+    object-fit: cover;
+  }
 
 .navbar-custom {
     background-color: #606C38;

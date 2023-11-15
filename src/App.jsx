@@ -51,8 +51,9 @@ function App() {
             <Route path= '/:anything' element={<Error404/>} /> 
             <Route path= '/snacks/:anysnack' element={<Error404/>} />
           </Routes>
+         
         </main>
-        <Footer/>
+         <Footer/>
       </Router>
       </CurrentUserProvider>
     </div>

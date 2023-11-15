@@ -1,45 +1,27 @@
 import React from 'react'
-
 import { useState, useEffect, useContext  } from 'react'
-
-
 import { Link  } from 'react-router-dom';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import Container from 'react-bootstrap/Container';
 
 function Footer() {
-
-   
-    
-    
 
     return (
         <>
         
-        <nav>
+        <Navbar className='navbar-custom' variant="" fixed="bottom"> 
        
-            <ul>
-                <li style={{ float: 'none' }}>
-                    <Link to=""  >
-                        Home
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/contact"  >
-                        Contact Us
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/about" >
-                        About
-                    </Link>
-                </li>
-                
-                
-            </ul>
-        </nav>
+            <Container> 
+                <Nav className="mx-auto"> 
+                    <Nav.Link as={Link} to="">Home</Nav.Link> 
+                    <Nav.Link as={Link} to="/contact">Contact Us</Nav.Link>
+                    <Nav.Link as={Link} to="/about">About</Nav.Link>
+                </Nav>
+            </Container>
+        </Navbar>
        </>
     )
 }
 
 export default Footer;
-
-

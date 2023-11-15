@@ -4,7 +4,8 @@ import { useState, useEffect, useContext } from "react";
 import { CurrentUser } from "../contexts/CurrentUser";
 import { Link } from "react-router-dom";
 // Import React Bootstrap components
-import { Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Button, Form, FormControl, InputGroup } from "react-bootstrap";
+import SearchBar from "./SearchBar";
 
 function Navigation() {
   let { currentUser, setCurrentUser } = useContext(CurrentUser);
@@ -19,11 +20,12 @@ function Navigation() {
 
   let loginActions = (
     <>
-      <Nav.Link className="nav-link-custom" as={Link} to="/sign-up">
-        Sign Up
-      </Nav.Link>
+      {/* <Nav.Link className="nav-link-custom" as={Link} to="/sign-up">
+      Sign Up
+    
+      </Nav.Link> */}
       <Nav.Link className="nav-link-custom" as={Link} to="/login">
-        Login
+      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;Sign in
       </Nav.Link>
     </>
   );
@@ -54,9 +56,10 @@ function Navigation() {
   return (
     <>
       <Navbar className="navbar-custom" variant="" expand="lg">
-        <Navbar.Brand as={Link} to="/">
+        <Navbar.Brand className="navbar-custom"  as={Link} to="/">
           Snack-ade.com
         </Navbar.Brand>
+       
         <Navbar.Toggle className="nav-link-custom" aria-controls="basic-navbar-nav">
         {/* Replace your icon here */}
         <i class="fa fa-bars" aria-hidden="true"></i>
@@ -73,6 +76,8 @@ function Navigation() {
               About
             </Nav.Link>
           </Nav>
+          <SearchBar/>
+
           <Nav>{loginActions}</Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -81,3 +86,6 @@ function Navigation() {
 }
 
 export default Navigation;
+
+
+

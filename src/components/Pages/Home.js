@@ -1,5 +1,5 @@
 import Catalog from "../Catalog"
-
+import MyBanner from "../HBanner"
 
 
 
@@ -8,10 +8,12 @@ function Home() {
     return (
         <div>
             <div className="home">
-                <h2>Snack-ade home body</h2>
+                <h1 className="">Donating made sweet & simple</h1>
+                <MyBanner/>
+                <h2>This Month's Best Sellers</h2>
                 <Catalog/>
                
-               <h3></h3>
+               <br></br>
             </div>
         </div>
     )

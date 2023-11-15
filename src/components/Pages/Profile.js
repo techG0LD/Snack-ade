@@ -20,9 +20,6 @@ function Profile() {
     }, [] )
 
 
-
-    
-
     
     return (
         <div>

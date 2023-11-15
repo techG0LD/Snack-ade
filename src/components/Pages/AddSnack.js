@@ -17,7 +17,7 @@ function AddSnack() {
                         <Form.Label>Vendor:</Form.Label>
                         <input className="form-control" id="vendor" name="vendor" required />
                         <Form.Label>Price:</Form.Label>
-                        <input className="form-control" id="price" name="price" type= 'number' required />
+                        <input className="form-control" id="price" name="price" type='number' step='0.01' required />
                         <Form.Label>Image URL:</Form.Label>
                         <input className="form-control" id="img" name="img" required />
                         <Form.Label>Description:</Form.Label>
