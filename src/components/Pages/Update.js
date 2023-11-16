@@ -20,6 +20,9 @@ function UpdateSnack() {
         fetchData()
     }, [] )
 
+   
+
+
   return (
     <div> 
         <Form className="form" method="POST" action={`http://localhost:4005/api/snacks/${snack.name}?_method=PUT`}>
@@ -27,8 +30,19 @@ function UpdateSnack() {
                 <Form.Group as={Col} controlId="formGridCity">
                     <Form.Label>Name:</Form.Label>
                     <input className='form-control' id='name' name='name'   defaultValue={snack.name} required/>
-                    <Form.Label>Vendor:</Form.Label>
-                    <input className="form-control" id="vendor" name="vendor"  defaultValue={snack.vendor} />
+                    <Form.Label>Category:</Form.Label>
+                    <select
+                        id="cat"
+                        name="cat"
+                        required
+                        className="form-control"
+                        value={snack.cat}
+                        onChange={(e) => setSnack({ ...snack, cat: e.target.value })}
+                        >
+                        <option  value='candy'>Hard/soft Candy</option>
+                        <option value='chocolate'>Chocolate</option>
+                        <option  value='baked'>Baked Goods</option>
+                        </select>
                     <Form.Label>Price:</Form.Label>
                     <input className="form-control" id="price" name="price"  defaultValue={snack.price}/>
                     <Form.Label>Image URL:</Form.Label>

@@ -58,6 +58,7 @@ snacks.get('/:name', async (req,res) => {
                 name: name
             }
         });
+        console.log(foundSnack.vendor_id)
         res.status(200).json(foundSnack)
 
     }  catch(e) {
@@ -86,7 +87,7 @@ snacks.post('/', async(req,res) => {
 //UPDATE A Sncak
 snacks.put('/:name', async(req,res) => {
     const {name} = req.params
-    console.log(req.body)
+    // console.log(req.body)
     try{
         const updatedSnack= await Snack.update(req.body, {
             where: {

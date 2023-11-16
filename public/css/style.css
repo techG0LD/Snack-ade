@@ -8,6 +8,7 @@ h1{
     font-family: 'Roboto Slab', serif;
     font-size:60px;
     color:#f0aa6d;
+
 }
 
 h2{
@@ -128,6 +129,11 @@ nav a:hover {
     text-decoration: none;
 }
 
+.product-img{
+    width: auto;
+    height:500px;
+}
+
 .sub-home{
     background-color: #C5DCA0;
 
@@ -138,6 +144,16 @@ main {
     margin-left: 20px;
     padding: 20px;
     background-color: #D0E3CC;
+}
+
+.user-drop{
+   color:#f0aa6d;
+    font-size: 14px ;
+}
+
+.view-all{
+    color:#f0aa6d;
+    font-size: 34px ;
 }
 
 .App{

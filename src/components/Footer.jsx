@@ -1,33 +1,4 @@
 
-
-// function Footer() {
-
-//     return (
-//         <>
-        
-//         <Navbar className='navbar-custom' variant="" > 
-       
-//             <Container> 
-//                 <Nav className="mx-auto"> 
-//                     <Nav.Link className="nav-link-custom" as={Link} to=""><i class="fa fa-home" aria-hidden="true"></i></Nav.Link> 
-//                     <Nav.Link as={Link} to="/contact">Contact Us</Nav.Link>
-//                     <Nav.Link className="nav-link-custom" as={Link} to="/about">
-//                         About
-//                     </Nav.Link>
-//                 </Nav>
-//             </Container>
-//         </Navbar>
-//        </>
-//     )
-// }
-
-// export default Footer;
-
-
-
-
-
-
 import React from 'react'
 import { Link  } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';

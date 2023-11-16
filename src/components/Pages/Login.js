@@ -34,8 +34,7 @@ function LoginForm() {
             localStorage.setItem('token',data.token)
             localStorage.setItem('password',credentials.password)
             // console.log(data.token)
-            navigate(-1)
-            // history.push(`/`)
+            navigate('/')
         } else {
             setErrorMessage(data.message)
         }

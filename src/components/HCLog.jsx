@@ -1,14 +1,10 @@
 
-
-
-
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
-export default function Catalog() {
+export default function HC_log() {
   const [snacks, setSnacks] = useState([]);
 
   useEffect(() => {

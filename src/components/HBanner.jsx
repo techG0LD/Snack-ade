@@ -1,7 +1,7 @@
-// Import the Carousel component from react-bootstrap
+
 import Carousel from 'react-bootstrap/Carousel';
 
-// Define some sample data for the carousel items
+//filler data
 const data = [
   {
     title: "Buy Snacks",
@@ -20,7 +20,7 @@ const data = [
   }
 ];
 
-// Define a function component to render the carousel
+
 function MyBanner() {
   return (
     <Carousel>
@@ -42,5 +42,4 @@ function MyBanner() {
   );
 }
 
-// Export the component
 export default MyBanner;

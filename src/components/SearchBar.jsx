@@ -35,7 +35,7 @@ function SearchBar() {
     
   };
 
-  // add an onSubmit event handler to the Form component
+  
   const handleSubmit = (event) => {
     // prevent the default behavior of the form submission
     event.preventDefault();

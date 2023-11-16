@@ -23,9 +23,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    vendor: {
-      type: DataTypes.STRING,
-      allowNull: false
+    cat: {
+        type:DataTypes.ENUM,
+        values:[
+          'candy',
+          'chocolate',
+          'baked'
+        ]
+      
     },
     price: {
       type: DataTypes.INTEGER,
@@ -38,6 +43,10 @@ module.exports = (sequelize, DataTypes) => {
     desc: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    vendor_id:{
+      type:DataTypes.INTEGER,
+      allowNull:false
     }
   }, {
     sequelize,
