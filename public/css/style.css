@@ -20,9 +20,10 @@ h2{
 
 .snack-title{
     background-color: #606C38;
-    color:white;
-    width: 30%;
-    text-align: center;
+    font-size:40px;
+    color:#f0aa6d;
+    padding-bottom: 5px;
+    border-radius: 15%;
 }
 
 .addbutton{
@@ -36,6 +37,15 @@ h2{
 .card {
     display: flex;
     flex-direction: column;
+  }
+
+  .card-home{
+    background-color: #f0aa6d;
+  }
+
+  .card-page{
+    background-color:#f0aa6d;
+
   }
   
   .card-img-top {
@@ -71,7 +81,7 @@ h2{
     color:#f0aa6d;
     background-color: #606C38;
     margin-top: 400px;
-    padding-top:0px;
+    padding-bottom:1px;
     
 }
 .navbar-custom {

@@ -57,15 +57,15 @@ function UpdateSnack() {
             <br />
 
             
-            <Button variant="danger"   type="submit" value="submit" >Update Snack </Button>
+            <Button variant="info"   type="submit" value="submit" >Update Snack </Button>
                     
             <form method = "POST" action={`http://localhost:4005/api/snacks/${snack.name}?_method=DELETE`}>
-                <Button type="submit" className="btn btn-danger">Delete Snack</Button>
+                <Button type="submit" className="btn btn-danger" >Delete Snack</Button>
             </form>
             
             <Link to='/'>
-            <Button variant="danger">
-                Back to Home
+            <Button variant="dark">
+                Back Home
             </Button>
             </Link>
         </Form>     

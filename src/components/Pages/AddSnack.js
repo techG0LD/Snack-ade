@@ -45,11 +45,11 @@ function AddSnack() {
                 </Row>
                 
                 
-                <Button variant="danger"   type="submit" value="submit" >Add Snack </Button>
+                <Button variant="success"   type="submit" value="submit" >Add Snack </Button>
                         
 
                 <Link to='/'>
-                    <Button className='addbutton' variant="danger"> Back to Home </Button>
+                    <Button className='addbutton' variant="dark"> Back Home </Button>
                 </Link>
 
             </Form>     

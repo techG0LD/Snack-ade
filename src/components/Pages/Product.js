@@ -32,7 +32,7 @@ export default function Product() {
 	if (currentUser?.user_id == snack.vendor_id) {
 		snackActions = (
 			<>
-            <Link to={`update`}><Button variant='danger'>Edit snack</Button></Link>
+            <Link to={`update`}><Button variant="info" size="lg" >Edit snack</Button></Link>
 			</>
 		)
 	}
@@ -41,7 +41,7 @@ export default function Product() {
         <Container className="">
             <Row>
                 <Col md={6}>
-                    <Card>
+                    <Card className='card-page'>
                         <Card.Img className="product-img" src={snack.img} alt={snack.name} />
                         <Card.Body>
                             <Card.Title className='snack-title'>{snack.name}</Card.Title>
@@ -56,8 +56,10 @@ export default function Product() {
                             <ListGroup.Item><strong>Price:</strong> {snack.price}</ListGroup.Item>
                         </ListGroup>
                         <div className="d-grid gap-2">
+                            <Link to={`#`}><Button variant="warning" size="lg">Add to Cart</Button></Link>
                             {snackActions}
-                            <Link  to='/'><Button variant='danger'>Back to Home</Button></Link>
+                            
+                            <Link  to='/'><Button variant="dark" size="lg">Back Home</Button></Link>
                             
                         </div>
                     </div>
