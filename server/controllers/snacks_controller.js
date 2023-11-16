@@ -15,6 +15,19 @@ snacks.get('/',async (req,res) => {
     }
 })
 
+
+//Get four snacks for home screen
+snacks.get('/demo',async (req,res) => {
+    try {
+        const foundSnacks = await Snack.findAll({limit: 4})
+        res.status(200).json(foundSnacks)
+    } catch (err){
+        res.status(500).send('Server error')
+        console.log(err)
+    }
+})
+
+
 //All snack names 
 snacks.get('/names', async (req, res) => {
     const snacks = await Snack.findAll()

@@ -13,7 +13,7 @@ export default function Catalog() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://localhost:4005/api/snacks/");
+      const response = await fetch("http://localhost:4005/api/snacks/demo");
       const json = await response.json();
       setSnacks(json);
     };
@@ -38,7 +38,7 @@ export default function Catalog() {
                   ${snack.price}
                 </Card.Text>
                 <Link to={`/snacks/${snack.name}`}>
-                  <Button variant="primary">View Details</Button>
+                  <Button className="navbar-custom" ><strong>View Snack</strong></Button>
                 </Link>
               </Card.Body>
             </Card>

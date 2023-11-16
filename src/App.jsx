@@ -15,6 +15,7 @@ import LoginForm from './components/Pages/Login';
 import SignUpForm from './components/Pages/SignUp';
 import Profile from './components/Pages/Profile';
 import UpdateProfile from './components/Pages/UpdateProfile';
+import SnacksIndex from './components/Pages/SnacksIndex';
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
         <main>
           <Routes>
             <Route exact path='/' element={<Home/>}></Route>  
-            <Route exact path = '/catalog' element={<Catalog />}/>
+            <Route exact path = '/catalog' element={<SnacksIndex />}/>
             <Route exact path = '/profile/:user_id' element={<Profile />}/>
             <Route exact path='/profile/:user_id/update' element={<UpdateProfile />}></Route>
             <Route exact path='/about' element={<AboutUs />}></Route>

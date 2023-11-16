@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import {useNavigate} from "react-router-dom"
 import { CurrentUser } from "../../contexts/CurrentUser"
+import { Link } from "react-router-dom";
 
 function LoginForm() {
 
@@ -42,7 +43,7 @@ function LoginForm() {
 
     return (
         <main>
-            <h1>Login</h1>
+            <h1>Sign In</h1>
             {errorMessage !== null
                 ? (
                     <div className="alert alert-danger" role="alert">
@@ -79,8 +80,13 @@ function LoginForm() {
                         />
                     </div>
                 </div>
-                <input className="btn btn-primary" type="submit" value="Login" />
+                <input className="btn  navbar-custom" type="submit" value="Login" />
             </form>
+
+
+            <div className="login-up">
+                <h3>Don't have an account, <Link className="link-custom"  to="/sign-up">Sign Up Here</Link></h3>
+            </div>
         </main>
     )
 }

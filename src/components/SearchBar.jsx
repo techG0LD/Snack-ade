@@ -52,16 +52,15 @@ function SearchBar() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           style={{
-            // make the input rounded like a pill
             borderRadius: "50px",
             borderRight: "none",
           }}
         />
         <Button
-          variant="primary"
+          className="search-butt"
+          variant=""
           onClick={handleSearch}
           style={{
-            // make the button rounded like a pill
             borderRadius: "50px",
             borderLeft: "none",
           }}

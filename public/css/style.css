@@ -1,5 +1,7 @@
 .App { width: 100vw; height: 100vh; display: flex; flex-direction: column; }
 
+
+
 main { flex: 1; overflow: auto; }
 
 h1{
@@ -26,6 +28,10 @@ h2{
     margin: 10px;
 }
 
+.link-custom{
+    color:#f0aa6d;
+}
+
 .card {
     display: flex;
     flex-direction: column;
@@ -37,6 +43,36 @@ h2{
     object-fit: cover;
   }
 
+.center-text{
+    padding-top:12px;
+}
+
+.divi{
+    font-size: 40px;
+
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.search-butt{
+    background-color: #C5DCA0;
+    color:#f0aa6d;
+}
+
+.sign-up{
+    background-color: #606C38;
+    color: #f0aa6d;
+   border-radius: 10%;
+   padding: 5px 5px 0 5px
+}
+
+.login-up{
+    color:#f0aa6d;
+    background-color: #606C38;
+    margin-top: 400px;
+    padding-top:0px;
+    
+}
 .navbar-custom {
     background-color: #606C38;
     color:#f0aa6d;
@@ -73,6 +109,11 @@ nav a {
 
 }
 
+p {
+    font-size:25px;
+
+    padding-top: 30px;
+}
 
 
 nav li {
@@ -85,6 +126,11 @@ nav li {
 nav a:hover {
     color: lightblue;
     text-decoration: none;
+}
+
+.sub-home{
+    background-color: #C5DCA0;
+
 }
 
 main {

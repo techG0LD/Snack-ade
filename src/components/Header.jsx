@@ -61,7 +61,7 @@ function Navigation() {
         </Navbar.Brand>
        
         <Navbar.Toggle className="nav-link-custom" aria-controls="basic-navbar-nav">
-        {/* Replace your icon here */}
+       
         <i class="fa fa-bars" aria-hidden="true"></i>
         </Navbar.Toggle>
         <Navbar.Collapse  id="basic-navbar-nav">
@@ -71,9 +71,6 @@ function Navigation() {
             </Nav.Link>
             <Nav.Link className="nav-link-custom" as={Link} to="/catalog">
               Catalog
-            </Nav.Link>
-            <Nav.Link className="nav-link-custom" as={Link} to="/about">
-              About
             </Nav.Link>
           </Nav>
           <SearchBar/>

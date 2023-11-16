@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 
 function SignUpForm() {
 
@@ -41,7 +41,7 @@ function SignUpForm() {
     if (usersEmails.includes(email)) {
       // If yes, set an error message in the state
       setUser({ ...user, email:''  });
-      setMsg({error:"This email already exists"})
+      setMsg({error:"An Account has already been created with this email, Please sign in"})
     } else {
       // If no, proceed with the fetch request
       await fetch(`http://localhost:4005/api/users/`, {
@@ -51,7 +51,8 @@ function SignUpForm() {
         },
         body: JSON.stringify(user),
       });
-      navigate("/");
+      setMsg({error:`Account Created, Please Sign in .`})
+      // navigate("/");  take to home page
     }
   }
   
@@ -63,6 +64,8 @@ function SignUpForm() {
     <main>
       <h1>Sign Up</h1>
       {msg.error && <p>{msg.error}</p>}
+      
+      
 
       <form onSubmit={handleSubmit}>
         <div className="row">
@@ -126,7 +129,7 @@ function SignUpForm() {
             </select>
           </div>
         </div>
-        <input className="btn btn-primary" type="submit" value="Sign Up" />
+        <input className="btn navbar-custom" type="submit" value="Sign Up" />
       </form>
     </main>
   );
