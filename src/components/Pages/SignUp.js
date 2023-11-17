@@ -3,14 +3,12 @@ import { useState, useEffect } from "react";
 
 function SignUpForm() {
 
-
-
     const [usersEmails,setUsersEmails] = useState([])
     let [msg,setMsg] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
-          const response = await fetch(`https://snack-ade.onrender.com/api/users/emails`)
+          const response = await fetch("https://snack-ade.onrender.com/api/users/emails")
             // const response = await fetch('http://localhost:4005/api/users/emails')
             const json = await response.json()
             setUsersEmails(json)
@@ -41,7 +39,7 @@ function SignUpForm() {
    } else {
      // If no, proceed with the fetch request
      // await fetch(`http://localhost:4005/api/users/`, {
-       await fetch(`https://snack-ade.onrender.com/api/users/`, {
+       await fetch("https://snack-ade.onrender.com/api/users/", {
        method: "POST",
        headers: 'application/json',
        body: JSON.stringify(user),
@@ -64,7 +62,7 @@ function SignUpForm() {
       
 
       <form onSubmit={handleSubmit} >
-      {/* <form  method="POST" action='https://snack-ade.onrender.com/api/users'> */}
+    
         <div className="row">
           <div className="col-sm-6 form-group">
             <label htmlFor="firstName">First Name</label>
