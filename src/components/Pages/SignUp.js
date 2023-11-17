@@ -41,7 +41,7 @@ function SignUpForm() {
     } else {
       // If no, proceed with the fetch request
       // await fetch(`http://localhost:4005/api/users/`, {
-        await fetch(`https://snack-ade.onrender.com/api/users/`, {
+        await fetch(`https://snack-ade.onrender.com/api/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
