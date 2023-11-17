@@ -27,28 +27,28 @@ function SignUpForm() {
   });
 
 
-  // async function handleSubmit(e) {
-  //    e.preventDefault();
+  async function handleSubmit(e) {
+     e.preventDefault();
   
-  //   // Get the email from the user state
-  //   const { email } = user;
+    // Get the email from the user state
+    const { email } = user;
   
-  //   // Check if the email is already in the users array
-  //   if (usersEmails.includes(email)) {
-  //     // If yes, set an error message in the state
-  //     setUser({ ...user, email:''  });
-  //     setMsg({error:"An Account has already been created with this email, Please sign in"})
-  //   } else {
-  //     // If no, proceed with the fetch request
-  //     // await fetch(`http://localhost:4005/api/users/`, {
-  //       await fetch(`https://snack-ade.onrender.com/api/users/`, {
-  //       method: "POST",
-  //       body: JSON.stringify(user),
-  //     });
-  //     setMsg({error:`Account Created, Please Sign in .`})
-  //     // navigate("/");  take to home page
-  //   }
-  // }
+    // Check if the email is already in the users array
+    if (usersEmails.includes(email)) {
+      // If yes, set an error message in the state
+      setUser({ ...user, email:''  });
+      setMsg({error:"An Account has already been created with this email, Please sign in"})
+    } else {
+      // If no, proceed with the fetch request
+      // await fetch(`http://localhost:4005/api/users/`, {
+        await fetch(`https://snack-ade.onrender.com/api/users/`, {
+        method: "POST",
+        body: JSON.stringify(user),
+      });
+      setMsg({error:`Account Created, Please Sign in .`})
+      // navigate("/");  take to home page
+    }
+  }
   
   
 
@@ -61,8 +61,8 @@ function SignUpForm() {
       
       
 
-      {/* <form onSubmit={handleSubmit} method="POST" action='https://snack-ade.onrender.com/api/users'> */}
-      <form  method="POST" action='https://snack-ade.onrender.com/api/users'>
+      <form onSubmit={handleSubmit} method="POST" action='https://snack-ade.onrender.com/api/users'>
+      {/* <form  method="POST" action='https://snack-ade.onrender.com/api/users'> */}
         <div className="row">
           <div className="col-sm-6 form-group">
             <label htmlFor="firstName">First Name</label>
@@ -128,7 +128,7 @@ function SignUpForm() {
             </select>
           </div>
         </div>
-        <input className="btn navbar-custom" type="submit" value="Sign Up" />
+        <input className="btn navbar-custom" type="submit" value="submit" />
       </form>
     </main>
   );
