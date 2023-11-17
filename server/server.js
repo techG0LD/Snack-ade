@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.json())
 app.use(methodOverride('_method'))
-// app.use(express.json());
+ app.use(express.json());
  app.use(express.static(path.join(__dirname,'../build')))
 
 app.use(defCurrentUser)
