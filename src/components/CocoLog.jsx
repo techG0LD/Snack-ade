@@ -1,11 +1,5 @@
-
-
-
-
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
 export default function Coco_log() {
@@ -26,10 +20,10 @@ export default function Coco_log() {
       <Row>
         {snacks.map((snack, index) => (
           <Col key={index} sm={6} md={4} lg={3} className="mb-4">
-            <Card className="card h-100">
+            <Card className="card h-100  card-page">
               <Card.Img className="" variant="top" src={snack.img} alt="Picture of snack" />
               <Card.Body>
-                <Card.Title>{snack.name}</Card.Title>
+                <Card.Title className="snack-title">{snack.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
                   {snack.vendor}
                 </Card.Subtitle>

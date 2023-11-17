@@ -1,7 +1,5 @@
 
 import { useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router";
-import { useNavigate,Link } from "react-router-dom";
 
 function SignUpForm() {
 
@@ -18,9 +16,6 @@ function SignUpForm() {
         }
         fetchData()
     }, [])
-
-
-  const navigate = useNavigate();
 
   const [user, setUser] = useState({
     firstName: "",

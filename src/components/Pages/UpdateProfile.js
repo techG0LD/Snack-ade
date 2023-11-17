@@ -3,7 +3,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { Link, useParams} from 'react-router-dom'
-import {useState,useEffect,useContext} from 'react'
+import {useState,useEffect,useNavigate} from 'react'
 
 
 
@@ -39,7 +39,10 @@ function UpdateProfile() {
 
 
   return (
+
+    
     <div> 
+        <h1>Account Settings</h1>
         <Form className="form" method="POST" action={`http://localhost:4005/api/users/${user.user_id}?_method=PUT`}>
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridCity">
@@ -69,19 +72,17 @@ function UpdateProfile() {
            
             <br />
             <br />
-
+            <div className='w-100 mt-4 d-flex justify-content-center'>
+                <Link to='/'>
+                    <Button variant="dark" className="mx-3">Home</Button>
+                </Link>
+               
+                <form method = "POST" action={`http://localhost:4005/api/users/${user.user_id}?_method=DELETE`}>
+                    <Button type="submit" variant="danger" className="mx-3"  onClick={deleteStorage}>Delete User</Button>
+                </form>       
+                 <Button variant="info" className="mx-3"  type="submit" value="submit" >Update Profile </Button>
+            </div>
             
-            <Button variant="danger"   type="submit" value="submit" >Update Profile </Button>
-
-             <form method = "POST" action={`http://localhost:4005/api/users/${user.user_id}?_method=DELETE`}>
-                <Button type="submit" className="btn btn-danger" onClick={deleteStorage}>Delete User</Button>
-            </form>       
-
-            <Link to='/'>
-            <Button variant="danger">
-                Back to Home
-            </Button>
-            </Link>
         </Form>     
     </div>
     )

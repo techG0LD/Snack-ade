@@ -10,6 +10,7 @@ import { CurrentUser } from '../../contexts/CurrentUser';
 
 export default function Product() {
 
+   
     const { currentUser } = useContext(CurrentUser)
     const [snack, setSnack] = useState([''])
     const params = useParams();
@@ -32,10 +33,12 @@ export default function Product() {
 	if (currentUser?.user_id == snack.vendor_id) {
 		snackActions = (
 			<>
-            <Link to={`update`}><Button variant="info" size="lg" >Edit snack</Button></Link>
+            <Link to={`update`}><Button className="mx-1" variant="info" size="lg" >Edit snack</Button></Link>
 			</>
 		)
 	}
+
+    
 
     return (
         <Container className="">
@@ -55,11 +58,12 @@ export default function Product() {
                             <ListGroup.Item><strong>Category:</strong> {snack.cat}</ListGroup.Item>
                             <ListGroup.Item><strong>Price:</strong> {snack.price}</ListGroup.Item>
                         </ListGroup>
-                        <div className="d-grid gap-2">
-                            <Link to={`#`}><Button variant="warning" size="lg">Add to Cart</Button></Link>
+                        <div className="d-grid gap-2 mt-2">
+                            <Link to={`#`}><Button className="mx-1" variant="warning" size="lg">Add to Cart</Button></Link>
+
                             {snackActions}
                             
-                            <Link  to='/'><Button variant="dark" size="lg">Back Home</Button></Link>
+                            <Link  to='/' ><Button  className="mx-1" variant="dark" size="lg">Home</Button></Link>
                             
                         </div>
                     </div>

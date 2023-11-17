@@ -49,7 +49,7 @@ function AddSnack() {
                         
 
                 <Link to='/'>
-                    <Button className='addbutton' variant="dark"> Back Home </Button>
+                    <Button className='addbutton' variant="dark"> Home </Button>
                 </Link>
 
             </Form>     

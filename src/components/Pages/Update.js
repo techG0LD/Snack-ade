@@ -65,7 +65,7 @@ function UpdateSnack() {
             
             <Link to='/'>
             <Button variant="dark">
-                Back Home
+                Home
             </Button>
             </Link>
         </Form>     

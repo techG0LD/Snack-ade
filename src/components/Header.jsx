@@ -1,9 +1,7 @@
-
-
 import { useState, useEffect, useContext } from "react";
 import { CurrentUser } from "../contexts/CurrentUser";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, NavDropdown, Button, Form, FormControl, InputGroup } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import SearchBar from "./SearchBar";
 
 function Navigation() {
@@ -31,7 +29,7 @@ function Navigation() {
           <Button variant="outline-light">Sign Out</Button>
         </Nav.Link> */}
         <NavDropdown
-          title={`Signed in as ${currentUser.firstName} ${currentUser.lastName}`}
+          title={`Welcome, ${currentUser.firstName} ${currentUser.lastName}`}
           id="user-dropdown"
         >
           <NavDropdown.Item className="navbar-custom" as={Link} to={`/profile/${currentUser.user_id}`}>
@@ -39,7 +37,7 @@ function Navigation() {
           </NavDropdown.Item>
           {currentUser.role === "seller" || currentUser.role === "admin" ? (
             <NavDropdown.Item className="navbar-custom" as={Link} to="/addSnack">
-              Add Snack
+              Add Snack <i class="fa fa-plus" aria-hidden="true"></i>
             </NavDropdown.Item>
           ) : null}
            <NavDropdown.Item className="navbar-custom" onClick={handleClick} as={Link} to={`/`}>
