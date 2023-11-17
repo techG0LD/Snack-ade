@@ -61,7 +61,7 @@ function SignUpForm() {
       
       
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} method="POST" action='https://snack-ade.onrender.com/api/users'>
         <div className="row">
           <div className="col-sm-6 form-group">
             <label htmlFor="firstName">First Name</label>
