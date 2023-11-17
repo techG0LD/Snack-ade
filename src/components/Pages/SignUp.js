@@ -3,12 +3,14 @@ import { useState, useEffect } from "react";
 
 function SignUpForm() {
 
+
+
     const [usersEmails,setUsersEmails] = useState([])
     let [msg,setMsg] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
-          const response = await fetch("https://snack-ade.onrender.com/api/users/emails")
+          const response = await fetch('https://snack-ade.onrender.com/api/users/emails')
             // const response = await fetch('http://localhost:4005/api/users/emails')
             const json = await response.json()
             setUsersEmails(json)
@@ -26,29 +28,30 @@ function SignUpForm() {
 
 
   async function handleSubmit(e) {
-    e.preventDefault();
- 
-   // Get the email from the user state
-   const { email } = user;
- 
-   // Check if the email is already in the users array
-   if (usersEmails.includes(email)) {
-     // If yes, set an error message in the state
-     setUser({ ...user, email:''  });
-     setMsg({error:"An Account has already been created with this email, Please sign in"})
-   } else {
-     // If no, proceed with the fetch request
-     // await fetch(`http://localhost:4005/api/users/`, {
-       await fetch("https://snack-ade.onrender.com/api/users/", {
-       method: "POST",
-       headers: 'application/json',
-       body: JSON.stringify(user),
-     });
-     setMsg({error:`Account Created, Please Sign in .`})
-     // navigate("/");  take to home page
-   }
- }
-
+     e.preventDefault();
+  
+    // Get the email from the user state
+    const { email } = user;
+  
+    // Check if the email is already in the users array
+    if (usersEmails.includes(email)) {
+      // If yes, set an error message in the state
+      setUser({ ...user, email:''  });
+      setMsg({error:"An Account has already been created with this email, Please sign in"})
+    } else {
+      // If no, proceed with the fetch request
+      // await fetch(`http://localhost:4005/api/users/`, {
+        await fetch(`https://snack-ade.onrender.com/api/users/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+      setMsg({error:`Account Created, Please Sign in .`})
+      // navigate("/");  take to home page
+    }
+  }
   
   
 
@@ -61,8 +64,7 @@ function SignUpForm() {
       
       
 
-      <form onSubmit={handleSubmit} >
-    
+      <form onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-sm-6 form-group">
             <label htmlFor="firstName">First Name</label>
@@ -128,7 +130,7 @@ function SignUpForm() {
             </select>
           </div>
         </div>
-        <input className="btn navbar-custom" type="submit" value="submit" />
+        <input className="btn navbar-custom" type="submit" value="Sign Up" />
       </form>
     </main>
   );
