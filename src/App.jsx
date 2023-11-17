@@ -22,19 +22,7 @@ function App() {
       <CurrentUserProvider>
       <Router>
         <Navigation/>
-        {/* <header>
-          <ul>
-            <li>
-              <Link to='/'>Home</Link>
-            </li>
-            <li>
-              <Link to='/catalog'>Catalog</Link>
-            </li>
-            <li>
-              <Link to='/about'>About Us</Link>
-            </li>
-          </ul>
-        </header> */}
+        
         <main>
           <Routes>
             <Route exact path='/' element={<Home/>}></Route>  
@@ -47,7 +35,6 @@ function App() {
             <Route exact path='/sign-up' element={<SignUpForm />}></Route>
             <Route exact path='/snacks/:name' element={<Product />}></Route>
             <Route exact path='/snacks/:name/update' element={<UpdateSnack />}></Route>
-            {/* reads Routes top to bottom */}
             <Route path= '/:anything' element={<Error404/>} /> 
             <Route path= '/snacks/:anysnack' element={<Error404/>} />
           </Routes>

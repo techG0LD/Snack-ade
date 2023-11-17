@@ -38,14 +38,11 @@ function SignUpForm() {
       // If yes, set an error message in the state
       setUser({ ...user, email:''  });
       setMsg({error:"An Account has already been created with this email, Please sign in"})
-    } else {
+    } else if (!usersEmails.includes(email)){
       // If no, proceed with the fetch request
       // await fetch(`http://localhost:4005/api/users/`, {
         await fetch(`https://snack-ade.onrender.com/api/users/`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify(user),
       });
       setMsg({error:`Account Created, Please Sign in .`})
@@ -92,6 +89,8 @@ function SignUpForm() {
             <label htmlFor="email">Email</label>
             <input
               type="email"
+              title="Email must be at least 10 characters long"
+              pattern=".{10,}"
               required
               defaultValue={user.email}
               onChange={(e) => setUser({ ...user, email: e.target.value })}
