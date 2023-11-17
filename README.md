@@ -33,6 +33,9 @@ Instead, a small percentage of the transaction fees will be for donations.
 -javascript
 -css
 
-#
 
 
+### Future Features
+-cart page
+-pages for categories
+-process transactions 
