@@ -14,9 +14,8 @@ function Profile() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(
-        `http://localhost:4005/api/users/${JSON.stringify(params)}`
-      );
+        const response = await fetch(`https://snack-ade.onrender.com/api/users/${JSON.stringify(params)}`)
+        //const response = await fetch(`http://localhost:4005/api/users/${JSON.stringify(params)}`);
       const json = await response.json();
       setUser(json);
     };

@@ -1,7 +1,6 @@
 
 import './App.css';
 import {BrowserRouter as Router,Route,Routes} from 'react-router-dom'
-import Catalog from './components/Catalog';
 import Navigation from './components/Header';
 import Home from './components/Pages/Home';
 import Error404 from './components/Pages/Error404';

@@ -80,7 +80,8 @@ snacks.post('/', async(req,res) => {
     const newSnack = await Snack.create(req.body)
 
 
-      res.redirect(`http://localhost:3000/snacks/${req.body.name}`)
+    //   res.redirect(`http://localhost:3000/snacks/${req.body.name}`)
+    res.redirect(`https://snack-ade.onrender.com/snacks/${req.body.name}`)
 
 })
 
@@ -94,7 +95,8 @@ snacks.put('/:name', async(req,res) => {
                 name: name
             }
         });
-        res.redirect(`http://localhost:3000/snacks/${req.body.name}`)
+        // res.redirect(`http://localhost:3000/snacks/${req.body.name}`)
+        res.redirect(`https://snack-ade.onrender.com/snacks/${req.body.name}`)
     } catch(error) {
         res.status(500).json(error)
     }
@@ -113,8 +115,8 @@ snacks.delete('/:name', async(req,res) => {
                 name: name
             }
         });
-        res.redirect('http://localhost:3000/')
-       
+        // res.redirect('http://localhost:3000/')
+        res.redirect('https://snack-ade.onrender.com/')
     } catch(error) {
         res.status(500).json(error)
     }

@@ -10,7 +10,8 @@ function SearchBar() {
 
     useEffect(()=> {
         const fetchData = async () => {
-            const response = await fetch(`http://localhost:4005/api/snacks/names`)
+          const response = await fetch(`https://snack-ade.onrender.com/api/snacks/names`)
+            // const response = await fetch(`http://localhost:4005/api/snacks/names`)  local dev
             const json = await response.json()
             setSnacks(json)
         }

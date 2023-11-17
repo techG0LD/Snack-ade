@@ -13,7 +13,8 @@ function UpdateSnack() {
 
     useEffect(()=> {
         const fetchData = async () => {
-            const response = await fetch(`http://localhost:4005/api/snacks/${JSON.stringify(params)}`)
+            const response = await fetch(`https://snack-ade.onrender.com/api/snacks/${JSON.stringify(params)}`)
+            // const response = await fetch(`http://localhost:4005/api/snacks/${JSON.stringify(params)}`)
             const json = await response.json()
             setSnack(json)
         }
@@ -25,7 +26,8 @@ function UpdateSnack() {
 
   return (
     <div> 
-        <Form className="form" method="POST" action={`http://localhost:4005/api/snacks/${snack.name}?_method=PUT`}>
+        <Form className="form" method="POST" action={`https://snack-ade.onrender.com/api/snacks/${snack.name}?_method=PUT`}>
+        {/* <Form className="form" method="POST" action={`http://localhost:4005/api/snacks/${snack.name}?_method=PUT`}> */}
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridCity">
                     <Form.Label>Name:</Form.Label>
@@ -58,8 +60,8 @@ function UpdateSnack() {
 
             
             <Button variant="info"   type="submit" value="submit" >Update Snack </Button>
-                    
-            <form method = "POST" action={`http://localhost:4005/api/snacks/${snack.name}?_method=DELETE`}>
+            <form method = "POST" action={`https://snack-ade.onrender.com/api/snacks/${snack.name}?_method=DELETE`}>       
+            {/* <form method = "POST" action={`http://localhost:4005/api/snacks/${snack.name}?_method=DELETE`}> */}
                 <Button type="submit" className="btn btn-danger" >Delete Snack</Button>
             </form>
             

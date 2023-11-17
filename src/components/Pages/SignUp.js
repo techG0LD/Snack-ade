@@ -10,7 +10,8 @@ function SignUpForm() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('http://localhost:4005/api/users/emails')
+          const response = await fetch('https://snack-ade.onrender.com/api/users/emails')
+            // const response = await fetch('http://localhost:4005/api/users/emails')
             const json = await response.json()
             setUsersEmails(json)
         }
@@ -39,7 +40,8 @@ function SignUpForm() {
       setMsg({error:"An Account has already been created with this email, Please sign in"})
     } else {
       // If no, proceed with the fetch request
-      await fetch(`http://localhost:4005/api/users/`, {
+      // await fetch(`http://localhost:4005/api/users/`, {
+        await fetch(`https://snack-ade.onrender.com/api/users/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

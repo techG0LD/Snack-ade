@@ -17,7 +17,8 @@ export default function Product() {
     console.log(currentUser)
     useEffect(()=> {
         const fetchData = async () => {
-            const response = await fetch(`http://localhost:4005/api/snacks/${JSON.stringify(params)}`)
+            const response = await fetch(`https://snack-ade.onrender.com/api/snacks/${JSON.stringify(params)}`)
+            //const response = await fetch(`http://localhost:4005/api/snacks/${JSON.stringify(params)}`)
             const json = await response.json()
             setSnack(json)
         }

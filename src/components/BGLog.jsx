@@ -8,7 +8,8 @@ export default function BG_log() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://localhost:4005/api/snacks/demo");
+        const response = await fetch("https://snack-ade.onrender.com/api/snacks/demo")
+      //const response = await fetch("http://localhost:4005/api/snacks/demo");
       const json = await response.json();
       setSnacks(json);
     };

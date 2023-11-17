@@ -16,7 +16,8 @@ function UpdateProfile() {
      
     useEffect(()=> {
         const fetchData = async () => {
-            const response = await fetch(`http://localhost:4005/api/users/${JSON.stringify(params)}`)
+            const response = await fetch(`https://snack-ade.onrender.com/api/users/${JSON.stringify(params)}`)
+            // const response = await fetch(`http://localhost:4005/api/users/${JSON.stringify(params)}`)
             const json = await response.json()
             setUser(json)
         }
@@ -43,7 +44,8 @@ function UpdateProfile() {
     
     <div> 
         <h1>Account Settings</h1>
-        <Form className="form" method="POST" action={`http://localhost:4005/api/users/${user.user_id}?_method=PUT`}>
+        <Form className="form" method="POST" action={`https://snack-ade.onrender.com/api/users/${user.user_id}?_method=PUT`}>
+        {/* <Form className="form" method="POST" action={`http://localhost:4005/api/users/${user.user_id}?_method=PUT`}> */}
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridCity">
                     <Form.Label>First Name:</Form.Label>
@@ -76,8 +78,8 @@ function UpdateProfile() {
                 <Link to='/'>
                     <Button variant="dark" className="mx-3">Home</Button>
                 </Link>
-               
-                <form method = "POST" action={`http://localhost:4005/api/users/${user.user_id}?_method=DELETE`}>
+                <form method = "POST" action={`https://snack-ade.onrender.com/api/users/${user.user_id}?_method=DELETE`}>
+                {/* <form method = "POST" action={`http://localhost:4005/api/users/${user.user_id}?_method=DELETE`}> */}
                     <Button type="submit" variant="danger" className="mx-3"  onClick={deleteStorage}>Delete User</Button>
                 </form>       
                  <Button variant="info" className="mx-3"  type="submit" value="submit" >Update Profile </Button>

@@ -94,7 +94,8 @@ users.put('/:user_id', async(req,res) => {
             }
         });
         // redirect to the user profile page
-        res.redirect(`http://localhost:3000/profile/${user_id}`)
+        // res.redirect(`http://localhost:3000/profile/${user_id}`)
+        res.redirect(`https://snack-ade.onrender.com/profile/${user_id}`)
     } catch(error) {
         // send a 500 response
         res.status(500).json(error)
@@ -141,8 +142,8 @@ users.delete('/:user_id', async(req,res) => {
                 user_id: user_id
             }
         });
-        res.redirect('http://localhost:3000/')
-       
+        // res.redirect('http://localhost:3000/')
+        res.redirect('https://snack-ade.onrender.com/')
     } catch(error) {
         res.status(500).json(error)
     }

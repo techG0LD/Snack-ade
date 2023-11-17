@@ -15,8 +15,8 @@ function AddSnack() {
 
     return (
         <div> 
-            
-            <Form className="form" method="POST" action='http://localhost:4005/api/snacks'>
+            <Form className="form" method="POST" action='https://snack-ade.onrender.com/api/snacks'>
+            {/* <Form className="form" method="POST" action='http://localhost:4005/api/snacks'> */}
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridCity">
                         <Form.Label>Name:</Form.Label>
