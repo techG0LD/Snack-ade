@@ -10,7 +10,7 @@ function SignUpForm() {
 
     useEffect(() => {
         const fetchData = async () => {
-          const response = await fetch('https://snack-ade.onrender.com/api/users/emails')
+          const response = await fetch(`https://snack-ade.onrender.com/api/users/emails`)
             // const response = await fetch('http://localhost:4005/api/users/emails')
             const json = await response.json()
             setUsersEmails(json)
@@ -63,7 +63,7 @@ function SignUpForm() {
       
       
 
-      <form onSubmit={handleSubmit} method="POST" action='https://snack-ade.onrender.com/api/users'>
+      <form onSubmit={handleSubmit} >
       {/* <form  method="POST" action='https://snack-ade.onrender.com/api/users'> */}
         <div className="row">
           <div className="col-sm-6 form-group">
