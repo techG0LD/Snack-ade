@@ -38,7 +38,7 @@ function SignUpForm() {
       // If yes, set an error message in the state
       setUser({ ...user, email:''  });
       setMsg({error:"An Account has already been created with this email, Please sign in"})
-    } else if (!usersEmails.includes(email)){
+    } else {
       // If no, proceed with the fetch request
       // await fetch(`http://localhost:4005/api/users/`, {
         await fetch(`https://snack-ade.onrender.com/api/users/`, {
@@ -103,6 +103,8 @@ function SignUpForm() {
             <input
               type="password"
               required
+              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               defaultValue={user.password}
               onChange={(e) => setUser({ ...user, password: e.target.value })}
               className="form-control"
