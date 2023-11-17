@@ -61,17 +61,23 @@ users.post('/', async (req, res) => {
     if(role == "") {
             req.body.role = 'buyer'
         }
-    try{
-        const user = await User.create({
-        ...rest,
-        role: req.body.role,
-        pass: await bcrypt.hash(password,10)
-    })
-    res.json(user)
 
-    }catch(error){
-        res.status(500).json(error)
-    }
+        const user = await User.create({
+                 ...rest,
+                 role: req.body.role,
+                 pass: await bcrypt.hash(password,10)
+             })
+    // try{
+    //     const user = await User.create({
+    //     ...rest,
+    //     role: req.body.role,
+    //     pass: await bcrypt.hash(password,10)
+    // })
+    // res.json(user)
+
+    // }catch(error){
+    //     res.status(500).json(error)
+    // }
     
 })
 
