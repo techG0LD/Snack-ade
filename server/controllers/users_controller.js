@@ -62,11 +62,7 @@ users.post('/', async (req, res) => {
             req.body.role = 'buyer'
         }
 
-        const user = await User.create({
-                 ...rest,
-                 role: req.body.role,
-                 pass: await bcrypt.hash(password,10)
-             })
+    const user = await User.create(req.body)
     // try{
     //     const user = await User.create({
     //     ...rest,
