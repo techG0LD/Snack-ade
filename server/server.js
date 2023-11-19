@@ -13,11 +13,12 @@ const methodOverride = require('method-override')
 //Configuration / MiddleWare
 
 app.use(cors());
+//  app.use(express.static('public'))
+app.use(express.urlencoded({extended:false}));  //was false before
 app.use(express.json()); 
 app.use(bodyParser.json())
 app.use(methodOverride('_method'))
-//  app.use(express.static('public'))
-app.use(express.urlencoded({extended:false}));  //was false before
+
 app.use(bodyParser.urlencoded({ extended: true }));  //added
 
 
