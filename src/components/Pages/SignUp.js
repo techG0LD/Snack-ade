@@ -121,7 +121,7 @@ function SignUpForm() {
             <select
               id="role"
               required
-             
+              value={user.role}
               onChange={(e) => setUser({ ...user, role: e.target.value })} // update the user.role state when the select changes
               className="form-control"
             >

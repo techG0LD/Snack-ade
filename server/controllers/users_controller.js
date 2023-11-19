@@ -57,11 +57,13 @@ users.get('/:user_id', async (req,res) => {
 //Add new user
 
 users.post('/', async (req, res) => {
-    console.log(req.body)
+    
     let {password,role, ...rest} = req.body;
     if(role == "") {
             req.body.role = 'buyer'
         }
+
+      console.log(req.body)  
     try{
         const user = await User.create({
         ...rest,
