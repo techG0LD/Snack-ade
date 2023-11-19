@@ -46,7 +46,8 @@ function SignUpForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(user),
+       
+        body: JSON.stringify(user)
       });
       setMsg({error:`Account Created, Please Sign in .`})
       // navigate("/");  take to home page

@@ -17,6 +17,7 @@ users.get('/', async (req, res) => {
 
 //All user emails
 users.get('/emails', async (req, res) => {
+    console.log('getting emails')
     const users = await User.findAll()
     // Map the users array to an array of emails
     const emails = users.map(user => user.email)
