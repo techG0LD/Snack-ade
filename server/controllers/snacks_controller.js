@@ -76,7 +76,7 @@ snacks.get('/:name', async (req,res) => {
 //Post new Snack
 snacks.post('/', async(req,res) => {
     console.log(req.body.name)  //value is shown in backend/api data
-
+    console.log(req.body) 
     const newSnack = await Snack.create(req.body)
 
 
