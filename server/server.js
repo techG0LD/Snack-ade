@@ -35,8 +35,8 @@ app.use('/api/users', usersController)
 app.use('/api/authen',require('./controllers/auth'))
 
 //Listen
-app.listen( 4005, () => {
-    console.log(`Server is runnning on port ${4005}`)
+app.listen( 4005 || process.env.PORT ,() => {
+    console.log(`Server is runnning on port ${4005 || process.env.PORT}`)
 })
 
 app.get('*',(req,res) => {
