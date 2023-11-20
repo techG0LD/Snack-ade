@@ -60,7 +60,7 @@ users.get('/:user_id', async (req,res) => {
 users.post('/', async (req, res) => {
     
     let {password,role, ...rest} = req.body;
-    let newPass = bcrypt(password,10)
+    let newPass = bcrypt.hash(password,10)
     if(role == "") {
             req.body.role = 'buyer'
         }
