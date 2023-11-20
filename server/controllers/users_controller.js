@@ -60,7 +60,6 @@ users.get('/:user_id', async (req,res) => {
 users.post('/', async (req, res) => {
     
     let {password,role, ...rest} = req.body;
-    let newPass = bcrypt.hash(password,10)
     if(role == "") {
             req.body.role = 'buyer'
         }
@@ -70,7 +69,7 @@ users.post('/', async (req, res) => {
         const user = await User.create({
         ...rest,
         role: req.body.role,
-        pass: newPass
+        pass: await bcrypt.hash(password,10)
     })
     res.json(user)
 
